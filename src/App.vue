@@ -1,30 +1,30 @@
 <template>
   <div class="container">
+    <TopNav />
     <div class="dashboard-grid-wrapper">
       <SideNav />
-      <NewsList />
+      <router-view />
     </div>
   </div>
-  <router-view />
 </template>
 
 <script>
 import SideNav from "@/components/SideNav.vue";
-import NewsList from "@/components/NewsList.vue";
+import TopNav from "@/components/TopNav.vue";
 
 export default {
   components: {
     SideNav,
-    NewsList,
+    TopNav,
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: proxima-nova, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
 }
@@ -45,5 +45,12 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.dashboard-grid-wrapper {
+  display: grid;
+  min-height: 100vh;
+  padding-top: 48px;
+  grid-template-columns: minmax(160px, 240px) 3fr;
 }
 </style>

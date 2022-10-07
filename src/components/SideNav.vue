@@ -19,7 +19,7 @@
             <span class="nav-list-title">Deal sheets</span>
           </div>
         </router-link>
-        <router-link class="routerLink" to="/news">
+        <router-link class="routerLink" to="/analytics">
           <div class="nav-list">
             <div class="nav-list-icon">
               <trendingUpIcon />
@@ -48,7 +48,7 @@
             <span class="nav-list-title">Residential</span>
           </div>
         </router-link>
-        <router-link class="routerLink" to="/news">
+        <router-link class="routerLink" to="/dealsheet">
           <div class="nav-list">
             <div class="nav-list-icon">
               <trendingUpIcon />
@@ -56,12 +56,12 @@
             <span class="nav-list-title">Commercial</span>
           </div>
         </router-link>
-        <router-link class="routerLink" to="/news">
+        <router-link class="routerLink" to="/analytics">
           <div class="nav-list">
             <div class="nav-list-icon">
               <flagIcon />
             </div>
-            <span class="nav-list-title">National</span>
+            <span class="nav-list-title">Merriweather</span>
           </div>
         </router-link>
       </div>
@@ -86,48 +86,6 @@ export default {
 };
 </script>
 
-<style>
-.side-nav-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 32px 24px 0px 32px;
-}
-
-span.title-nav {
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: #9d9d9d;
-  text-transform: uppercase;
-  width: fit-content;
-}
-
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 6px 4px;
-}
-
-.nav-list:hover {
-  background-color: #f0f0f0;
-  border-radius: 4px;
-}
-
-.nav-list-icon {
-  width: fit-content;
-}
-
-.routerLink {
-  text-decoration: none;
-}
-
-span.nav-list-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #000000;
-  text-decoration: none;
-  margin-left: 12px;
-}
+<style lang="scss">
+@import "./style/SideNav.scss";
 </style>

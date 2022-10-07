@@ -13,7 +13,7 @@
       stroke="#9d9d9d"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-width="1.5"
+      stroke-width="2"
     />
   </svg>
 </template>
@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 </style>

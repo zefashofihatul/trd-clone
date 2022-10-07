@@ -1,0 +1,13 @@
+.primary-button {
+  padding: 12px 32px;
+  border-radius: 6px;
+  border-style: none;
+  font-family: $body-font-family, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color: $light-font-color;
+  background-color: $accent-danger;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
+}
