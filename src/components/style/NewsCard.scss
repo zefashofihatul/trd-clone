@@ -1,0 +1,83 @@
+@import "@/scss/_mixin";
+
+.news-card-container {
+  padding: 16px;
+  margin-bottom: 16px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  background-color: #f5f6f8;
+  border-radius: 8px;
+}
+
+.news-card-content-wrapper {
+  display: flex;
+  width: 100%;
+  .news-card-image {
+    img {
+      border-radius: 4px;
+    }
+  }
+  .news-card-content {
+    margin-left: 16px;
+    .content-description {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      .content-description-publish {
+        span {
+          @include bodyFont(14px, 600, $dark-font-color);
+        }
+      }
+      .content-description-writter {
+        span {
+          @include bodyFont(14px, 600, $grey-font-color);
+        }
+      }
+    }
+    .content-news-title {
+      margin-top: 16px;
+      p {
+        margin: 0;
+        line-height: 1.5;
+        overflow: hidden;
+        text-align: left;
+        -webkit-box-orient: vertical;
+        display: block;
+        display: -webkit-box;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        @include headingFont(14px, 400, $dark-font-color);
+      }
+    }
+  }
+}
+
+.news-card-status-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 0 24px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  .status {
+    .status-label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: left;
+      .label {
+        white-space: nowrap;
+        width: fit-content;
+        @include bodyFont(14px, 600, $grey-font-color);
+      }
+      .status {
+        width: fit-content;
+        margin: 0;
+        @include headingFont(16px, 800, $dark-font-color);
+      }
+    }
+  }
+}

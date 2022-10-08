@@ -1,5 +1,7 @@
 .primary-button {
-  padding: 12px 32px;
+  padding: 0 32px;
+  height: 40px;
+  min-width: 40px;
   border-radius: 6px;
   border-style: none;
   font-family: $body-font-family, "Times New Roman", Times, serif;
@@ -8,6 +10,6 @@
   background-color: $accent-danger;
   cursor: pointer;
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 }
