@@ -1,0 +1,20 @@
+@import "@/scss/_mixin";
+
+.header-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px 24px 24px;
+  border: 1px solid $border-color;
+  border-left: none;
+}
+
+.header-page-title {
+  @include headingFont(24px, 800, $dark-font-color);
+  margin: 0;
+  padding: 0;
+}
+
+.header-page-controller {
+  display: flex;
+}

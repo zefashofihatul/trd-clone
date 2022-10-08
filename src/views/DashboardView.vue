@@ -5,13 +5,13 @@
 </template>
 
 <script>
+import HeaderPage from "@/components/HeaderPage.vue";
+
 export default {
   name: "DashboardView",
 };
 </script>
 
 <style>
-.dashboard-list-container {
-  background-color: aqua;
-}
+@import "./style/DashboardView.scss";
 </style>

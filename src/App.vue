@@ -50,7 +50,8 @@ nav a.router-link-exact-active {
 .dashboard-grid-wrapper {
   display: grid;
   min-height: 100vh;
-  padding-top: 48px;
+  padding-top: 59px;
+  box-sizing: border-box;
   grid-template-columns: minmax(160px, 240px) 3fr;
 }
 </style>

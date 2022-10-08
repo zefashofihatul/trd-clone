@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .news-list-container {
   background-color: aqua;
 }

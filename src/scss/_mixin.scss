@@ -1,0 +1,13 @@
+@mixin bodyFont($size, $weight, $color) {
+  font-family: "proxima-nova";
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin headingFont($size, $weight, $color) {
+  font-family: "merriweather";
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}

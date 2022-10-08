@@ -6,12 +6,20 @@
         <router-link class="routerLink" to="/">
           <div class="nav-list">
             <div class="nav-list-icon">
-              <packageIcon />
+              <globeIcon />
             </div>
-            <span class="nav-list-title">Topics</span>
+            <span class="nav-list-title">Dashboard</span>
           </div>
         </router-link>
         <router-link class="routerLink" to="/news">
+          <div class="nav-list">
+            <div class="nav-list-icon">
+              <packageIcon />
+            </div>
+            <span class="nav-list-title">News</span>
+          </div>
+        </router-link>
+        <router-link class="routerLink" to="/dealsheet">
           <div class="nav-list">
             <div class="nav-list-icon">
               <documentIcon />
@@ -74,6 +82,7 @@ import documentIcon from "@/assets/icon/documentIcon";
 import packageIcon from "@/assets/icon/packageIcon";
 import trendingUpIcon from "@/assets/icon/trendingUp";
 import flagIcon from "@/assets/icon/flagIcon.vue";
+import globeIcon from "@/assets/icon/globeIcon.vue";
 
 export default {
   name: "SideNav",
@@ -82,6 +91,7 @@ export default {
     packageIcon,
     trendingUpIcon,
     flagIcon,
+    globeIcon,
   },
 };
 </script>

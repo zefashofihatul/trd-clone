@@ -1,6 +1,6 @@
 <template>
   <div class="dealsheet-list-container">
-    <h2>News List Container</h2>
+    <h2>Dealsheet List Container</h2>
   </div>
 </template>
 
