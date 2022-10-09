@@ -1,0 +1,49 @@
+@import "@/scss/_mixin";
+
+.post-news-wrapper {
+  padding: 120px 120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.post-title-wrapper {
+  width: 100%;
+  display: flex;
+  #post-title {
+    width: 100%;
+
+    @include headingFont(40px, 800, $dark-font-color);
+    background-color: none;
+    border: none;
+    &::placeholder {
+      color: $grey-font-color;
+    }
+    &:focus {
+      outline: none;
+      background-color: none;
+    }
+  }
+}
+
+.post-description-wrapper {
+  width: 100%;
+  display: flex;
+  border: solid 1px blue;
+  #post-description {
+    height: auto;
+    display: block;
+    width: 100%;
+    white-space: wrap;
+    line-height: 1.8;
+    resize: none;
+    @include headingFont(20px, 400, $dark-font-color);
+    border: none;
+    &::placeholder {
+      color: $grey-font-color;
+    }
+    &:focus {
+      outline: none;
+      background-color: none;
+    }
+  }
+}

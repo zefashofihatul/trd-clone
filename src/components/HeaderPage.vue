@@ -2,7 +2,9 @@
   <div class="header-page-container">
     <h1 class="header-page-title">{{ title }}</h1>
     <div class="header-page-controller">
-      <PrimaryButton color="dark" value="Create News" />
+      <router-link class="routerLink" to="/news/create">
+        <PrimaryButton color="dark" value="Create News" />
+      </router-link>
       <IconButton color="dark" />
     </div>
   </div>

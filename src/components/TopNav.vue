@@ -5,13 +5,13 @@
         <div class="logo-container">
           <img :src="logo" alt="" />
         </div>
-        <div class="search-container">
+        <div class="search-container" v-show="search">
           <searchIcon />
           <input type="text" class="search-input" placeholder="Search" />
         </div>
       </div>
       <div class="nav-content-container">
-        <PrimaryButton value="Logout" />
+        <slot />
       </div>
     </div>
   </div>
@@ -20,7 +20,6 @@
 <script>
 import logo from "@/assets/logo.svg";
 import searchIcon from "@/assets/icon/search.vue";
-import PrimaryButton from "@/components/base/Button";
 
 export default {
   name: "TopNav",
@@ -29,9 +28,11 @@ export default {
       logo: logo,
     };
   },
+  props: {
+    search: Boolean,
+  },
   components: {
     searchIcon,
-    PrimaryButton,
   },
 };
 </script>

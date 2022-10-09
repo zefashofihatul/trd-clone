@@ -7,6 +7,9 @@
 
 .side-nav-wrapper {
   border: 1px solid #d0d5d9;
+  @media only screen and (max-width: 1080px) {
+    display: none;
+  }
 }
 
 span.title-nav {

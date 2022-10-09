@@ -1,0 +1,10 @@
+.grid-wrapper {
+  display: grid;
+  min-height: 100vh;
+  padding-top: 59px;
+  box-sizing: border-box;
+  grid-template-columns: minmax(160px, 240px) 3fr;
+  @media only screen and (max-width: 1080px) {
+    grid-template-columns: 1fr;
+  }
+}

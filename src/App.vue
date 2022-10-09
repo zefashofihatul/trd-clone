@@ -1,26 +1,18 @@
 <template>
   <div class="container">
-    <TopNav />
-    <div class="dashboard-grid-wrapper">
-      <SideNav />
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
 import SideNav from "@/components/SideNav.vue";
 import TopNav from "@/components/TopNav.vue";
+import PrimaryButton from "@/components/base/Button";
 
-export default {
-  components: {
-    SideNav,
-    TopNav,
-  },
-};
+export default {};
 </script>
 
-<style>
+<style lang="scss">
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -53,5 +45,8 @@ nav a.router-link-exact-active {
   padding-top: 59px;
   box-sizing: border-box;
   grid-template-columns: minmax(160px, 240px) 3fr;
+  @media only screen and (max-width: 1080px) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
