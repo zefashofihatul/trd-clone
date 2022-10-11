@@ -11,7 +11,9 @@
   display: flex;
   #post-title {
     width: 100%;
-
+    line-height: 1.5;
+    height: calc(1.5 * 40px + 4px);
+    resize: none;
     @include headingFont(40px, 800, $dark-font-color);
     background-color: none;
     border: none;
@@ -27,14 +29,32 @@
 
 .post-description-wrapper {
   width: 100%;
-  display: flex;
-  border: solid 1px blue;
   #post-description {
-    height: auto;
-    display: block;
     width: 100%;
+    height: fit-content;
     white-space: wrap;
-    line-height: 1.8;
+    line-height: 1.5;
+    height: 34px;
+    resize: none;
+    margin: 6px 0;
+    @include headingFont(20px, 400, $dark-font-color);
+    border: none;
+    &::placeholder {
+      color: $grey-font-color;
+    }
+    &:focus {
+      outline: none;
+      background-color: none;
+    }
+  }
+  .post-description {
+    width: 100%;
+    height: fit-content;
+    white-space: wrap;
+    line-height: 1.5;
+    overflow: hidden;
+    display: block;
+    height: 34px;
     resize: none;
     @include headingFont(20px, 400, $dark-font-color);
     border: none;
