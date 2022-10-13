@@ -4,16 +4,24 @@
   padding: 120px 120px;
   width: 100%;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .post-title-wrapper {
   width: 100%;
   display: flex;
+  margin-bottom: 8px;
   #post-title {
+    max-width: 100%;
     width: 100%;
-    line-height: 1.5;
-    height: calc(1.5 * 40px + 4px);
-    resize: none;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: left;
+    caret-color: rgb(55, 53, 47);
+    padding: 3px 2px;
+    min-height: 1em;
+    cursor: text;
+
     @include headingFont(40px, 800, $dark-font-color);
     background-color: none;
     border: none;
@@ -27,37 +35,48 @@
   }
 }
 
+#tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  display: none;
+  z-index: 9999;
+  background: black;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
 .post-description-wrapper {
   width: 100%;
   #post-description {
+    max-width: 100%;
     width: 100%;
-    height: fit-content;
-    white-space: wrap;
+    cursor: text;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: left;
+    caret-color: rgb(55, 53, 47);
+    padding: 3px 2px;
     line-height: 1.5;
-    height: 34px;
-    resize: none;
-    margin: 6px 0;
     @include headingFont(20px, 400, $dark-font-color);
-    border: none;
-    &::placeholder {
-      color: $grey-font-color;
-    }
-    &:focus {
-      outline: none;
-      background-color: none;
-    }
-  }
-  .post-description {
-    width: 100%;
-    height: fit-content;
-    white-space: wrap;
-    line-height: 1.5;
-    overflow: hidden;
-    display: block;
-    height: 34px;
-    resize: none;
-    @include headingFont(20px, 400, $dark-font-color);
-    border: none;
+
     &::placeholder {
       color: $grey-font-color;
     }
