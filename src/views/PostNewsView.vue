@@ -1,6 +1,6 @@
 <template>
   <div class="post-news-container">
-    <span id="tooltip" aria-hidden="true">Hey ✌️</span>
+    <EditorTooltip @perform-action="performAction" />
     <TopNav>
       <PrimaryButton value="Publish" color="dark" style="margin-right: 16px" />
       <PrimaryButton value="Delete & Back" style="margin-right: 56px" />
@@ -15,6 +15,7 @@
           id="post-title"
           spellcheck="false"
           v-model="title"
+          @perform-action="performAction"
         />
       </div>
       <div class="post-description-wrapper" ref="descriptionWrapper">
@@ -23,6 +24,7 @@
             type="text"
             name="post-description"
             id="post-description"
+            class="post-description-1u3iu42"
             placeholder="Tell your story"
             spellcheck="false"
             v-model="description"
@@ -39,6 +41,7 @@ import TopNav from "@/components/TopNav.vue";
 import PrimaryButton from "@/components/base/Button";
 import IconButton from "@/components/base/IconButton.vue";
 import TextareaCustom from "@/components/base/Textarea.vue";
+import EditorTooltip from "@/components/base/EditorTooltip.vue";
 import { h, createApp, withModifiers } from "vue";
 
 export default {
@@ -47,23 +50,41 @@ export default {
     return {
       title: "",
       description: "",
+      selection: {},
+      pos: {},
     };
   },
+
   components: {
     TopNav,
     PrimaryButton,
     IconButton,
+    EditorTooltip,
     TextareaCustom,
   },
+  mounted() {
+    // const element = document.querySelector(".post-news-wrapper");
+    // element.addEventListener("selectstart", (e) => {
+    //   console.log(e);
+    // });
+  },
   methods: {
+    randomId: function () {
+      return "post-description-" + Math.floor(Math.random() * 10000000);
+    },
     selectionWord: function (e) {
-      const range = this.getSelectionRange(e.target);
+      const selectionRange = this.getSelectionRange();
+      const range = this.saveSelection(e.target);
       const resistance = 4;
-      if (Math.abs(range.start - range.end) > resistance) {
-        console.log(range);
-        this.toggleTooltip(e, true);
+
+      this.selection = {
+        range: range,
+        element: e.target.className,
+      };
+      if (selectionRange.string.length > 3) {
+        this.toggleTooltip(e.target, true);
       } else {
-        this.toggleTooltip(e, false);
+        this.toggleTooltip(e.target, false);
       }
     },
     changeDown: function (e) {
@@ -106,7 +127,7 @@ export default {
       if (e.keyCode == "13") {
         e.preventDefault();
         const component = h(TextareaCustom, {
-          class: ["post-description"],
+          class: ["post-description", `${this.randomId()}`],
           name: "post-description",
           placeholder: "Tell your story",
           spellcheck: "false",
@@ -195,7 +216,7 @@ export default {
         tooltip.setAttribute("aria-hidden", "false");
         tooltip.setAttribute(
           "style",
-          `display: inline-block; left: ${x - 32}px; top: ${y - 36}px`,
+          `display: inline-block; left: ${x + 16}px; top: ${y - 54}px`,
         );
       } else {
         tooltip.setAttribute("aria-hidden", "true");
@@ -304,27 +325,38 @@ export default {
     },
     getSelectionRange: function (el, start, end) {
       const sel = window.getSelection();
+      const string = sel.toString();
       const { anchorOffset, focusOffset } = sel;
-      return { start: anchorOffset, end: focusOffset };
-      // const btn = document.createElement("b");
-      // btn.innerHTML = sel;
-      // document.execCommand("insertHTML", false, btn.outerHTML);
+      return { start: anchorOffset, end: focusOffset, string: string };
     },
     performAction: function (command) {
       // Bold, Italic, Underline
-      const sel = window.getSelection().toString();
       document.execCommand(command, false, null);
+    },
+    saveSelection: function () {
+      if (window.getSelection) {
+        const sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+          return sel.getRangeAt(0);
+        }
+      } else if (document.selection && document.selection.createRange) {
+        return document.selection.createRange();
+      }
+      return null;
     },
     setCaretToPos: function (el, pos = 0) {
       const node = el;
       const range = document.createRange();
+
       if (el.textContent.length >= pos && el.textContent.length > 0) {
         const textNode = node.firstChild;
-        range.setStart(textNode, pos);
-        range.setEnd(textNode, pos);
+        range.setStart(textNode, 0);
+        range.setEnd(textNode, 0);
       }
 
       const sel = window.getSelection();
+      const sel2 = sel.containsNode(el, true);
+      console.log(sel2);
       sel.removeAllRanges();
 
       sel.addRange(range);
